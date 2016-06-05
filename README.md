@@ -100,6 +100,30 @@ In order to complete this assignment, you must do the following:
 5.  Submit to Coursera the URL to your GitHub repository that contains
     the completed R code for the assignment.
 
+#### Test the assignment
+
+Run the following commands in R to test the script for caching matrix'inverse.
+
+```R
+> source("cachematrix.R")
+> c=rbind(c(3, 25), c(1-3, 5)) 
+> c
+     [,1] [,2]
+[1,]    3   25
+[2,]   -2    5
+> solve(c)
+           [,1]        [,2]
+[1,] 0.07692308 -0.38461538
+[2,] 0.03076923  0.04615385
+> cached_matrix <- makeCacheMatrix(c)
+> 
+> cacheSolve(cached_matrix)
+           [,1]        [,2]
+[1,] 0.07692308 -0.38461538
+[2,] 0.03076923  0.04615385
+> 
+```
+
 ### Grading
 
 This assignment will be graded via peer assessment.
